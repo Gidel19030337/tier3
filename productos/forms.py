@@ -10,12 +10,12 @@ class PlasticPartsForm(forms.ModelForm):
         model = PlasticParts
         fields = '__all__'
         widgets = {
-            'carcasa_color_azul': forms.NumberInput(attrs={'class': 'form-control', 'min': 200, 'max': 1000}),
-            'carcasa_color_verde': forms.NumberInput(attrs={'class': 'form-control', 'min': 200, 'max': 1000}),
-            'carcasa_color_amarillo': forms.NumberInput(attrs={'class': 'form-control', 'min': 200, 'max': 1000}),
-            'carcasa_color_morado': forms.NumberInput(attrs={'class': 'form-control', 'min': 200, 'max': 1000}),
-            'carcasa_color_rosa': forms.NumberInput(attrs={'class': 'form-control', 'min': 200, 'max': 1000}),
-            'carcasa_color_cyan': forms.NumberInput(attrs={'class': 'form-control', 'min': 200, 'max': 1000}),
+            'caja_de_airpods': forms.NumberInput(attrs={'class': 'form-control', 'min': 200, 'max': 1000}),
+            'caja_de_telefono': forms.NumberInput(attrs={'class': 'form-control', 'min': 200, 'max': 1000}),
+            'caja_de_cargador': forms.NumberInput(attrs={'class': 'form-control', 'min': 200, 'max': 1000}),
+            'plastico_para_carcasas_de_iphone': forms.NumberInput(attrs={'class': 'form-control', 'min': 200, 'max': 1000}),
+            'plastico_para_carcasas_de_airpods': forms.NumberInput(attrs={'class': 'form-control', 'min': 200, 'max': 1000}),
+            'caja_de_cable': forms.NumberInput(attrs={'class': 'form-control', 'min': 200, 'max': 1000}),
         }
 
 class ElectronicPartsForm(forms.ModelForm):

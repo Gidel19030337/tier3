@@ -33,12 +33,12 @@ class Inventario(models.Model):
 
 #Modelo de Solicitud
 class Solicitud(models.Model):
-    carcasa_color_azul = models.IntegerField()
-    carcasa_color_verde = models.IntegerField()
-    carcasa_color_amarillo = models.IntegerField()
-    carcasa_color_morado = models.IntegerField()
-    carcasa_color_rosa = models.IntegerField()
-    carcasa_color_cyan = models.IntegerField()
+    caja_de_airpods = models.IntegerField()
+    caja_de_telefono = models.IntegerField()
+    caja_de_cargador = models.IntegerField()
+    plastico_para_carcasas_de_iphone = models.IntegerField()
+    plastico_para_carcasas_de_airpods = models.IntegerField()
+    caja_de_cable = models.IntegerField()
 
     def __str__(self):
         return f'Solicitud {self.id}'
@@ -57,12 +57,12 @@ class Envio(models.Model):
 
 #Modelo para las Piezas Plasticas    
 class PlasticParts(models.Model):
-    carcasa_color_azul = models.IntegerField(default=0)
-    carcasa_color_verde = models.IntegerField(default=0)
-    carcasa_color_amarillo = models.IntegerField(default=0)
-    carcasa_color_morado = models.IntegerField(default=0)
-    carcasa_color_rosa = models.IntegerField(default=0)
-    carcasa_color_cyan = models.IntegerField(default=0)
+    caja_de_airpods = models.IntegerField(default=0)
+    caja_de_telefono = models.IntegerField(default=0)
+    caja_de_cargador = models.IntegerField(default=0)
+    plastico_para_carcasas_de_iphone = models.IntegerField(default=0)
+    plastico_para_carcasas_de_airpods = models.IntegerField(default=0)
+    caja_de_cable = models.IntegerField(default=0)
 
 #Modelo para Piezas electronicas
 class ElectronicParts(models.Model):

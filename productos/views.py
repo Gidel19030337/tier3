@@ -60,33 +60,33 @@ def client_request(request):
     if request.method == "POST":
         try:
             data = json.loads(request.body.decode("utf-8"))
-            carcasa_color_azul = data.get("carcasa_color_azul")
-            carcasa_color_verde = data.get("carcasa_color_verde")
-            carcasa_color_amarillo = data.get("carcasa_color_amarillo")
-            carcasa_color_morado = data.get("carcasa_color_morado")
-            carcasa_color_rosa = data.get("carcasa_color_rosa")
-            carcasa_color_cyan = data.get("carcasa_color_cyan")
+            caja_de_airpods = data.get("caja_de_airpods")
+            caja_de_telefono = data.get("caja_de_telefono")
+            caja_de_cargador = data.get("caja_de_cargador")
+            plastico_para_carcasas_de_iphone = data.get("plastico_para_carcasas_de_iphone")
+            plastico_para_carcasas_de_airpods = data.get("plastico_para_carcasas_de_airpods")
+            caja_de_cable = data.get("caja_de_cable")
 
             # Guardar la nueva información en el modelo Solicitud
             solicitud_nueva = Solicitud.objects.create(
-                carcasa_color_azul=carcasa_color_azul,
-                carcasa_color_verde=carcasa_color_verde,
-                carcasa_color_amarillo=carcasa_color_amarillo,
-                carcasa_color_morado=carcasa_color_morado,
-                carcasa_color_rosa=carcasa_color_rosa,
-                carcasa_color_cyan=carcasa_color_cyan,
+                caja_de_airpods=caja_de_airpods,
+                caja_de_telefono=caja_de_telefono,
+                caja_de_cargador=caja_de_cargador,
+                plastico_para_carcasas_de_iphone=plastico_para_carcasas_de_iphone,
+                plastico_para_carcasas_de_airpods=plastico_para_carcasas_de_airpods,
+                caja_de_cable=caja_de_cable,
             )
 
             # Realizar operaciones en el modelo Inventario según tus instrucciones
             multiplicacion_x3 = 3  # Define el valor para multiplicación x3
             multiplicacion_x2 = 2  # Define el valor para multiplicación x2
             total_nativo = (
-                carcasa_color_azul
-                + carcasa_color_verde
-                + carcasa_color_amarillo
-                + carcasa_color_morado
-                + carcasa_color_rosa
-                + carcasa_color_cyan
+                caja_de_airpods
+                + caja_de_telefono
+                + caja_de_cargador
+                + plastico_para_carcasas_de_iphone
+                + plastico_para_carcasas_de_airpods
+                + caja_de_cable
             )
 
             inventario_3 = Inventario.objects.get(id=3)
@@ -209,12 +209,12 @@ def client_sell(request, currency="USD"):
     # Calcular el total y multiplicarlo por 1000
     total_sum = (
         sum(
-            solicitud.carcasa_color_azul
-            + solicitud.carcasa_color_verde
-            + solicitud.carcasa_color_amarillo
-            + solicitud.carcasa_color_morado
-            + solicitud.carcasa_color_rosa
-            + solicitud.carcasa_color_cyan
+            solicitud.caja_de_airpods
+            + solicitud.caja_de_telefono
+            + solicitud.caja_de_cargador
+            + solicitud.plastico_para_carcasas_de_iphone
+            + solicitud.plastico_para_carcasas_de_airpods
+            + solicitud.caja_de_cable
             for solicitud in solicitudes
         )
         * 1000
@@ -293,12 +293,12 @@ def t2pc_sell(request):
         if form.is_valid():
             plastic_parts_data = form.save()
             data = {
-                "carcasa_color_azul": plastic_parts_data.carcasa_color_azul,
-                "carcasa_color_verde": plastic_parts_data.carcasa_color_verde,
-                "carcasa_color_amarillo": plastic_parts_data.carcasa_color_amarillo,
-                "carcasa_color_morado": plastic_parts_data.carcasa_color_morado,
-                "carcasa_color_rosa": plastic_parts_data.carcasa_color_rosa,
-                "carcasa_color_cyan": plastic_parts_data.carcasa_color_cyan,
+                "caja_de_airpods": plastic_parts_data.caja_de_airpods,
+                "caja_de_telefono": plastic_parts_data.caja_de_telefono,
+                "caja_de_cargador": plastic_parts_data.caja_de_cargador,
+                "plastico_para_carcasas_de_iphone": plastic_parts_data.plastico_para_carcasas_de_iphone,
+                "plastico_para_carcasas_de_airpods": plastic_parts_data.plastico_para_carcasas_de_airpods,
+                "caja_de_cable": plastic_parts_data.caja_de_cable,
             }
 
             main_api_url = "http://localhost:8002/update-plastic-parts"
@@ -352,12 +352,12 @@ def entryexit(request):
     solicitudes = Solicitud.objects.all()
     total_solicitudes = sum(
         [
-            solicitud.carcasa_color_azul
-            + solicitud.carcasa_color_verde
-            + solicitud.carcasa_color_amarillo
-            + solicitud.carcasa_color_morado
-            + solicitud.carcasa_color_rosa
-            + solicitud.carcasa_color_cyan
+            solicitud.caja_de_airpods
+            + solicitud.caja_de_telefono
+            + solicitud.caja_de_cargador
+            + solicitud.plastico_para_carcasas_de_iphone
+            + solicitud.plastico_para_carcasas_de_airpods
+            + solicitud.caja_de_cable
             for solicitud in solicitudes
         ]
     )
@@ -365,12 +365,12 @@ def entryexit(request):
     electronic_parts_data = ElectronicParts.objects.last()
     total_plastic_parts = (
         (
-            plastic_parts_data.carcasa_color_azul
-            + plastic_parts_data.carcasa_color_verde
-            + plastic_parts_data.carcasa_color_amarillo
-            + plastic_parts_data.carcasa_color_morado
-            + plastic_parts_data.carcasa_color_rosa
-            + plastic_parts_data.carcasa_color_cyan
+            plastic_parts_data.caja_de_airpods
+            + plastic_parts_data.caja_de_telefono
+            + plastic_parts_data.caja_de_cargador
+            + plastic_parts_data.plastico_para_carcasas_de_iphone
+            + plastic_parts_data.plastico_para_carcasas_de_airpods
+            + plastic_parts_data.caja_de_cable
         )
         if plastic_parts_data
         else 0
