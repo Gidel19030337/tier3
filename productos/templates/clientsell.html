@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Tier 3: Carton</title>
+
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-mobile"></i>
+                </div>
+                <div class="sidebar-brand-text"><br/><br/>Tier3: Proveedor de Plástico y Cartón de empaque</div>
+            </a>
+            <!--************************************************************************************-->
+            <br/>
+            <br/>
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">
+                    <i class="fas fa-fw fa-home"></i>
+                    <span>Inicio</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/warehouse">
+                    <i class="fas fa-fw fa-warehouse"></i>
+                    <span>Inventario</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Clientes
+            </div>
+            <!-- *********************************************************************************************  -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/clientrequest">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Solicitudes</span>
+                </a>
+            </li>
+            <div class="sidebar-heading">
+                Logistica
+            </div>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/logship">
+                    <i class="fas fa-fw fa-truck"></i>
+                    <span>Envios</span>
+                </a>
+            </li>
+
+            <!-- *********************************************************************************************  -->
+
+            
+            <hr class="sidebar-divider">
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column">
+            {% block content %}
+            <h1>Solicitudes de Envío</h1>
+        
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Caja de AirPods</th>
+                            <th>Caja de Teléfono</th>
+                            <th>Caja de Cargador</th>
+                            <th>Plástico para Carcasa de iPhone</th>
+                            <th>Plástico para Carcasa de AirPods</th>
+                            <th>Caja de Cable</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for solicitud in datos %}
+                            <tr>
+                                <td>{{ solicitud.id }}</td>
+                                <td>{{ solicitud.carcasa_color_azul }}</td>
+                                <td>{{ solicitud.carcasa_color_verde }}</td>
+                                <td>{{ solicitud.carcasa_color_amarillo }}</td>
+                                <td>{{ solicitud.carcasa_color_morado }}</td>
+                                <td>{{ solicitud.carcasa_color_rosa }}</td>
+                                <td>{{ solicitud.carcasa_color_cyan }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        
+            <h1>Total: {{ total_sum }}$</h1>
+        {% endblock %}
+        <p>Ganancias en diferntes moendas</p>
+        <ul>
+            <li>Total en {{ selected_currency }}: {{ total_in_selected_currency | floatformat:2 }}$</li>
+            <li>Total en EUR: {{ total_in_eur | floatformat:2 }}$</li>
+            <li>Total en MXN: {{ total_in_mxn | floatformat:2 }}$</li>
+        </ul>
+        <p>Tasas de cambio:</p>
+        <ul>
+            <li>USD: {{ exchange_rates.USD }}$</li>
+            <li>EUR: {{ exchange_rates.EUR }}$</li>
+            <li>MXN: {{ exchange_rates.MXN }}$</li>
+        </ul>
+        
+        
+</body>
+
+</html>
